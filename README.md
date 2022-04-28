@@ -1,2 +1,7 @@
 # unix-course-design
-School UNIX course design.
+
+UNIX课程设计：设计玩具级并发服务器，客户机和服务器实现的功能自定义，并测试系统的并发性能
+
+- 多进程方式
+- 多线程方式
+- IO多路复用
