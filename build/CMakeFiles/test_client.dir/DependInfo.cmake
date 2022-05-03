@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/february/work/exercise/unix-course-design/src/inet_sockets.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/test_client.dir/src/inet_sockets.c.o"
   "/home/february/work/exercise/unix-course-design/src/test_client.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/test_client.dir/src/test_client.c.o"
+  "/home/february/work/exercise/unix-course-design/src/util.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/test_client.dir/src/util.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

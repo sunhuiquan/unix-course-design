@@ -220,6 +220,36 @@ src/test_client.c.s:
 	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/test_client.c.s
 .PHONY : src/test_client.c.s
 
+src/util.o: src/util.c.o
+
+.PHONY : src/util.o
+
+# target to build an object file
+src/util.c.o:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.o
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.o
+.PHONY : src/util.c.o
+
+src/util.i: src/util.c.i
+
+.PHONY : src/util.i
+
+# target to preprocess a source file
+src/util.c.i:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.i
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.i
+.PHONY : src/util.c.i
+
+src/util.s: src/util.c.s
+
+.PHONY : src/util.s
+
+# target to generate assembly for a file
+src/util.c.s:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.s
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.s
+.PHONY : src/util.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -239,6 +269,9 @@ help:
 	@echo "... src/test_client.o"
 	@echo "... src/test_client.i"
 	@echo "... src/test_client.s"
+	@echo "... src/util.o"
+	@echo "... src/util.i"
+	@echo "... src/util.s"
 .PHONY : help
 
 

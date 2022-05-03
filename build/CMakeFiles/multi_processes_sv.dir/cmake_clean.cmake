@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o"
   "CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o"
+  "CMakeFiles/multi_processes_sv.dir/src/util.c.o"
   "multi_processes_sv"
   "multi_processes_sv.pdb"
 )

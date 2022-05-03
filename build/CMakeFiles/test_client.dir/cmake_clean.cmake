@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test_client.dir/src/inet_sockets.c.o"
   "CMakeFiles/test_client.dir/src/test_client.c.o"
+  "CMakeFiles/test_client.dir/src/util.c.o"
   "test_client"
   "test_client.pdb"
 )

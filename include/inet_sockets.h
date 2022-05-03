@@ -4,6 +4,8 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
+typedef enum { FALSE, TRUE } Boolean;
+
 int inetConnect(const char *host, const char *service, int type);
 
 int inetListen(const char *service, int backlog, socklen_t *addrlen);

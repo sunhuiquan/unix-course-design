@@ -3,12 +3,13 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 
+#include <string.h>
+#include <stdio.h>
+
 #include "inet_sockets.h"
 
 #include <errno.h>
 #include <unistd.h>
-
-typedef enum { FALSE, TRUE } Boolean;
 
 /* The following arguments are common to several of the routines
    below:

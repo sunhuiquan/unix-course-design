@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define SERVICE "echo" /* Name of TCP service */
 #define BUF_SIZE 4096

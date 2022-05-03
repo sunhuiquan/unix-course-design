@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_C
   "/home/february/work/exercise/unix-course-design/src/inet_sockets.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o"
   "/home/february/work/exercise/unix-course-design/src/multi_processes_sv.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o"
+  "/home/february/work/exercise/unix-course-design/src/util.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/util.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

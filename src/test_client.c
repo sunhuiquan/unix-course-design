@@ -1,7 +1,11 @@
 #include "inet_sockets.h"
+#include "util.h"
 
 #include <unistd.h>
 #include <stdlib.h>
+
+#include <stdio.h>
+#include <string.h>
 
 #define BUF_SIZE 100
 
@@ -12,7 +16,7 @@ int main(int argc, char *argv[])
 	char buf[BUF_SIZE];
 
 	if (argc != 2 || strcmp(argv[1], "--help") == 0)
-		usageErr("%s host\n", argv[0]);
+		usageErrExit(argv[0], "<hostname>");
 
 	sfd = inetConnect(argv[1], "echo", SOCK_STREAM);
 	if (sfd == -1)
@@ -40,7 +44,7 @@ int main(int argc, char *argv[])
 			if (numRead <= 0) /* Exit loop on EOF or error */
 				break;
 			if (write(sfd, buf, numRead) != numRead)
-				fatal("write() failed");
+				errExit("write");
 		}
 
 		/* Close writing channel, so server sees EOF */
