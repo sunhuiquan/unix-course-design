@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/inet_sockets.h
+sys/socket.h
+-
+netdb.h
+-
+
+/home/february/work/exercise/unix-course-design/src/inet_sockets.c
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+inet_sockets.h
+/home/february/work/exercise/unix-course-design/src/inet_sockets.h
+errno.h
+-
+unistd.h
+-
+
+/home/february/work/exercise/unix-course-design/src/test_client.c
+inet_sockets.h
+/home/february/work/exercise/unix-course-design/src/inet_sockets.h
+unistd.h
+-
+stdlib.h
+-
+

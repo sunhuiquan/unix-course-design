@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"signal.h": "c",
+		"test_client.h": "c",
+		"multiple_processes_server.h": "c"
+	}
+}
