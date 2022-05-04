@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/inet_sockets.h
+../include/inet_stream_sockets.h
 sys/socket.h
 -
 netdb.h
@@ -14,11 +14,27 @@ netdb.h
 
 ../include/util.h
 
+/home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c
+sys/socket.h
+-
+netinet/in.h
+-
+arpa/inet.h
+-
+netdb.h
+-
+string.h
+-
+stdio.h
+-
+inet_stream_sockets.h
+/home/february/work/exercise/unix-course-design/src/inet_stream_sockets.h
+errno.h
+-
+unistd.h
+-
+
 /home/february/work/exercise/unix-course-design/src/test_client.c
-inet_sockets.h
-/home/february/work/exercise/unix-course-design/src/inet_sockets.h
-util.h
-/home/february/work/exercise/unix-course-design/src/util.h
 unistd.h
 -
 stdlib.h
@@ -26,5 +42,21 @@ stdlib.h
 stdio.h
 -
 string.h
+-
+inet_stream_sockets.h
+/home/february/work/exercise/unix-course-design/src/inet_stream_sockets.h
+util.h
+/home/february/work/exercise/unix-course-design/src/util.h
+
+/home/february/work/exercise/unix-course-design/src/util.c
+util.h
+/home/february/work/exercise/unix-course-design/src/util.h
+errno.h
+-
+string.h
+-
+stdio.h
+-
+stdlib.h
 -
 

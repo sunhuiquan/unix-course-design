@@ -136,35 +136,35 @@ multi_processes_sv/fast:
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/build
 .PHONY : multi_processes_sv/fast
 
-src/inet_sockets.o: src/inet_sockets.c.o
+src/inet_stream_sockets.o: src/inet_stream_sockets.c.o
 
-.PHONY : src/inet_sockets.o
+.PHONY : src/inet_stream_sockets.o
 
 # target to build an object file
-src/inet_sockets.c.o:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_sockets.c.o
-	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o
-.PHONY : src/inet_sockets.c.o
+src/inet_stream_sockets.c.o:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o
+.PHONY : src/inet_stream_sockets.c.o
 
-src/inet_sockets.i: src/inet_sockets.c.i
+src/inet_stream_sockets.i: src/inet_stream_sockets.c.i
 
-.PHONY : src/inet_sockets.i
+.PHONY : src/inet_stream_sockets.i
 
 # target to preprocess a source file
-src/inet_sockets.c.i:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_sockets.c.i
-	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.i
-.PHONY : src/inet_sockets.c.i
+src/inet_stream_sockets.c.i:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.i
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.i
+.PHONY : src/inet_stream_sockets.c.i
 
-src/inet_sockets.s: src/inet_sockets.c.s
+src/inet_stream_sockets.s: src/inet_stream_sockets.c.s
 
-.PHONY : src/inet_sockets.s
+.PHONY : src/inet_stream_sockets.s
 
 # target to generate assembly for a file
-src/inet_sockets.c.s:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_sockets.c.s
-	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.s
-.PHONY : src/inet_sockets.c.s
+src/inet_stream_sockets.c.s:
+	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.s
+	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.s
+.PHONY : src/inet_stream_sockets.c.s
 
 src/multi_processes_sv.o: src/multi_processes_sv.c.o
 
@@ -260,9 +260,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... test_client"
 	@echo "... multi_processes_sv"
-	@echo "... src/inet_sockets.o"
-	@echo "... src/inet_sockets.i"
-	@echo "... src/inet_sockets.s"
+	@echo "... src/inet_stream_sockets.o"
+	@echo "... src/inet_stream_sockets.i"
+	@echo "... src/inet_stream_sockets.s"
 	@echo "... src/multi_processes_sv.o"
 	@echo "... src/multi_processes_sv.i"
 	@echo "... src/multi_processes_sv.s"

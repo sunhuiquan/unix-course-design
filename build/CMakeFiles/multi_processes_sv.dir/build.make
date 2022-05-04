@@ -70,18 +70,18 @@ CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/multi_processes_sv.c -o CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.s
 
-CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o: CMakeFiles/multi_processes_sv.dir/flags.make
-CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o: ../src/inet_sockets.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/february/work/exercise/unix-course-design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o   -c /home/february/work/exercise/unix-course-design/src/inet_sockets.c
+CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o: CMakeFiles/multi_processes_sv.dir/flags.make
+CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o: ../src/inet_stream_sockets.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/february/work/exercise/unix-course-design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o   -c /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c
 
-CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/february/work/exercise/unix-course-design/src/inet_sockets.c > CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.i
+CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c > CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.i
 
-CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/inet_sockets.c -o CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.s
+CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c -o CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.s
 
 CMakeFiles/multi_processes_sv.dir/src/util.c.o: CMakeFiles/multi_processes_sv.dir/flags.make
 CMakeFiles/multi_processes_sv.dir/src/util.c.o: ../src/util.c
@@ -99,14 +99,14 @@ CMakeFiles/multi_processes_sv.dir/src/util.c.s: cmake_force
 # Object files for target multi_processes_sv
 multi_processes_sv_OBJECTS = \
 "CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o" \
-"CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o" \
+"CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o" \
 "CMakeFiles/multi_processes_sv.dir/src/util.c.o"
 
 # External object files for target multi_processes_sv
 multi_processes_sv_EXTERNAL_OBJECTS =
 
 multi_processes_sv: CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o
-multi_processes_sv: CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o
+multi_processes_sv: CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o
 multi_processes_sv: CMakeFiles/multi_processes_sv.dir/src/util.c.o
 multi_processes_sv: CMakeFiles/multi_processes_sv.dir/build.make
 multi_processes_sv: CMakeFiles/multi_processes_sv.dir/link.txt

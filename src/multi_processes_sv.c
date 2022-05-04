@@ -7,13 +7,14 @@
 #include <syslog.h>
 #include <string.h>
 #include <errno.h>
-#include "inet_sockets.h"
+
+#include "inet_stream_sockets.h"
 
 #define SERVICE "echo" // 周知服务名，echo 服务对应端口 7
 #define BUF_SIZE 4096
 
-static void
-reaper(int sig)
+/* SIGCHLD 信号处理函数 */
+static void reaper(int sig)
 {
 	int savedErrno = errno; // 防止 handler 修改 errno
 
@@ -24,8 +25,8 @@ reaper(int sig)
 	errno = savedErrno;
 }
 
-static void
-handleRequest(int cfd)
+/* ECHO 服务功能代码 */
+static void handleRequest(int cfd)
 {
 	char buf[BUF_SIZE];
 	ssize_t numRead;
@@ -63,10 +64,10 @@ int main(int argc, char *argv[])
 	}
 
 	// 生成监听套接字
-	lfd = inetListen(SERVICE, 10, NULL);
+	lfd = inetStreamListen(SERVICE, 10, NULL);
 	if (lfd == -1)
 	{
-		syslog(LOG_ERR, "Could not create server socket (%s)", strerror(errno));
+		syslog(LOG_ERR, "Could not create listening socket (%s)", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 

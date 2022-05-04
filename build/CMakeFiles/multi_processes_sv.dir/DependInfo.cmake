@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/february/work/exercise/unix-course-design/src/inet_sockets.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/inet_sockets.c.o"
+  "/home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o"
   "/home/february/work/exercise/unix-course-design/src/multi_processes_sv.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o"
   "/home/february/work/exercise/unix-course-design/src/util.c" "/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir/src/util.c.o"
   )

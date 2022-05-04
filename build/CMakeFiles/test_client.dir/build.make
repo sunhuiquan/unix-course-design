@@ -70,18 +70,18 @@ CMakeFiles/test_client.dir/src/test_client.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_client.dir/src/test_client.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/test_client.c -o CMakeFiles/test_client.dir/src/test_client.c.s
 
-CMakeFiles/test_client.dir/src/inet_sockets.c.o: CMakeFiles/test_client.dir/flags.make
-CMakeFiles/test_client.dir/src/inet_sockets.c.o: ../src/inet_sockets.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/february/work/exercise/unix-course-design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/test_client.dir/src/inet_sockets.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_client.dir/src/inet_sockets.c.o   -c /home/february/work/exercise/unix-course-design/src/inet_sockets.c
+CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o: CMakeFiles/test_client.dir/flags.make
+CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o: ../src/inet_stream_sockets.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/february/work/exercise/unix-course-design/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o   -c /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c
 
-CMakeFiles/test_client.dir/src/inet_sockets.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_client.dir/src/inet_sockets.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/february/work/exercise/unix-course-design/src/inet_sockets.c > CMakeFiles/test_client.dir/src/inet_sockets.c.i
+CMakeFiles/test_client.dir/src/inet_stream_sockets.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/test_client.dir/src/inet_stream_sockets.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c > CMakeFiles/test_client.dir/src/inet_stream_sockets.c.i
 
-CMakeFiles/test_client.dir/src/inet_sockets.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_client.dir/src/inet_sockets.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/inet_sockets.c -o CMakeFiles/test_client.dir/src/inet_sockets.c.s
+CMakeFiles/test_client.dir/src/inet_stream_sockets.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/test_client.dir/src/inet_stream_sockets.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c -o CMakeFiles/test_client.dir/src/inet_stream_sockets.c.s
 
 CMakeFiles/test_client.dir/src/util.c.o: CMakeFiles/test_client.dir/flags.make
 CMakeFiles/test_client.dir/src/util.c.o: ../src/util.c
@@ -99,14 +99,14 @@ CMakeFiles/test_client.dir/src/util.c.s: cmake_force
 # Object files for target test_client
 test_client_OBJECTS = \
 "CMakeFiles/test_client.dir/src/test_client.c.o" \
-"CMakeFiles/test_client.dir/src/inet_sockets.c.o" \
+"CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o" \
 "CMakeFiles/test_client.dir/src/util.c.o"
 
 # External object files for target test_client
 test_client_EXTERNAL_OBJECTS =
 
 test_client: CMakeFiles/test_client.dir/src/test_client.c.o
-test_client: CMakeFiles/test_client.dir/src/inet_sockets.c.o
+test_client: CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o
 test_client: CMakeFiles/test_client.dir/src/util.c.o
 test_client: CMakeFiles/test_client.dir/build.make
 test_client: CMakeFiles/test_client.dir/link.txt
