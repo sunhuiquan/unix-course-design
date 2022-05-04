@@ -12,23 +12,19 @@ sys/socket.h
 netdb.h
 -
 
-/home/february/work/exercise/unix-course-design/src/inet_sockets.c
-sys/socket.h
+../include/util.h
+
+/home/february/work/exercise/unix-course-design/src/test_client.c
+inet_sockets.h
+/home/february/work/exercise/unix-course-design/src/inet_sockets.h
+util.h
+/home/february/work/exercise/unix-course-design/src/util.h
+unistd.h
 -
-netinet/in.h
--
-arpa/inet.h
--
-netdb.h
--
-string.h
+stdlib.h
 -
 stdio.h
 -
-inet_sockets.h
-/home/february/work/exercise/unix-course-design/src/inet_sockets.h
-errno.h
--
-unistd.h
+string.h
 -
 

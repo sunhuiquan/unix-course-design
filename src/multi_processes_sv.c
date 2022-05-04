@@ -1,29 +1,28 @@
-#include <signal.h>
-#include <syslog.h>
-#include <sys/wait.h>
-
-#include "inet_sockets.h"
+/* 多进程服务器模型 */
 
 #include <unistd.h>
-#include <errno.h>
 #include <stdlib.h>
+#include <signal.h>
+#include <sys/wait.h>
+#include <syslog.h>
 #include <string.h>
+#include <errno.h>
+#include "inet_sockets.h"
 
-#define SERVICE "echo" /* Name of TCP service */
+#define SERVICE "echo" // 周知服务名，echo 服务对应端口 7
 #define BUF_SIZE 4096
 
-static void /* SIGCHLD handler to reap dead child processes */
-grimReaper(int sig)
+static void
+reaper(int sig)
 {
-	int savedErrno; /* Save 'errno' in case changed here */
+	int savedErrno = errno; // 防止 handler 修改 errno
 
-	savedErrno = errno;
+	// 循环 + 非阻塞，因为重复信号可能丢失，所以要这样确保全部回收
 	while (waitpid(-1, NULL, WNOHANG) > 0)
 		continue;
+
 	errno = savedErrno;
 }
-
-/* Handle a client request: copy socket input back to socket */
 
 static void
 handleRequest(int cfd)
@@ -35,6 +34,7 @@ handleRequest(int cfd)
 	{
 		if (write(cfd, buf, numRead) != numRead)
 		{
+			// 信息通过 syslog 写入日志，到 /var/log/syslog 查看日志
 			syslog(LOG_ERR, "write() failed: %s", strerror(errno));
 			exit(EXIT_FAILURE);
 		}
@@ -49,20 +49,20 @@ handleRequest(int cfd)
 
 int main(int argc, char *argv[])
 {
-	int lfd, cfd; /* Listening and connected sockets */
+	int lfd, cfd;
 	struct sigaction sa;
 
-	/* Establish SIGCHLD handler to reap terminated child processes */
-
+	// 设置 SIGCHLD 信号处理函数
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = SA_RESTART;
-	sa.sa_handler = grimReaper;
+	sa.sa_handler = reaper;
 	if (sigaction(SIGCHLD, &sa, NULL) == -1)
 	{
 		syslog(LOG_ERR, "Error from sigaction(): %s", strerror(errno));
 		exit(EXIT_FAILURE);
 	}
 
+	// 生成监听套接字
 	lfd = inetListen(SERVICE, 10, NULL);
 	if (lfd == -1)
 	{
@@ -70,8 +70,13 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 
+	/* 多进程模型：一个子进程为一个客户的请求提供服务，父进程不断 accept 等待来自
+	 * 客户的 connect 请求，生成连接套接字后 fork 让子进程为该客户提供服务，父进程
+	 * 循环继续 accept 等待下一个客户的请求。
+	 */
 	for (;;)
 	{
+		// 建立 TCP 连接，生成连接套接字
 		cfd = accept(lfd, NULL, NULL); /* Wait for connection */
 		if (cfd == -1)
 		{
@@ -79,23 +84,22 @@ int main(int argc, char *argv[])
 			exit(EXIT_FAILURE);
 		}
 
-		/* Handle each client request in a new child process */
-
 		switch (fork())
 		{
 		case -1:
+			// fork 失败，关闭 cfd 并重新循环等待下一次连接再尝试
 			syslog(LOG_ERR, "Can't create child (%s)", strerror(errno));
-			close(cfd); /* Give up on this client */
-			break;		/* May be temporary; try next client */
+			close(cfd);
+			break;
 
-		case 0:			/* Child */
-			close(lfd); /* Unneeded copy of listening socket */
+		case 0:
+			close(lfd);
 			handleRequest(cfd);
-			_exit(EXIT_SUCCESS);
+			_exit(EXIT_SUCCESS); // 良好习惯，子进程退出不要刷新 stdio 缓冲区
 
-		default:		/* Parent */
-			close(cfd); /* Unneeded copy of connected socket */
-			break;		/* Loop to accept next connection */
+		default:
+			close(cfd); // 父进程关闭连接套接字，让指向的打开文件表项的计数只是子进程的一个
+			break;
 		}
 	}
 }

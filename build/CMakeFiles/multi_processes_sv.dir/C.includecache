@@ -12,23 +12,21 @@ sys/socket.h
 netdb.h
 -
 
-/home/february/work/exercise/unix-course-design/src/inet_sockets.c
-sys/socket.h
+/home/february/work/exercise/unix-course-design/src/multi_processes_sv.c
+unistd.h
 -
-netinet/in.h
+stdlib.h
 -
-arpa/inet.h
+signal.h
 -
-netdb.h
+sys/wait.h
+-
+syslog.h
 -
 string.h
 -
-stdio.h
+errno.h
 -
 inet_sockets.h
 /home/february/work/exercise/unix-course-design/src/inet_sockets.h
-errno.h
--
-unistd.h
--
 

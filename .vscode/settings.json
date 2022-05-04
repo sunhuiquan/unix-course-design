@@ -4,6 +4,7 @@
 		"test_client.h": "c",
 		"multiple_processes_server.h": "c",
 		"inet.h": "c",
-		"util.h": "c"
+		"util.h": "c",
+		"stdio.h": "c"
 	}
 }

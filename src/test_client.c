@@ -27,27 +27,25 @@ int main(int argc, char *argv[])
 	case -1:
 		errExit("fork");
 
-	case 0: /* Child: read server's response, echo on stdout */
+	case 0:
 		for (;;)
 		{
 			numRead = read(sfd, buf, BUF_SIZE);
-			if (numRead <= 0) /* Exit on EOF or error */
+			if (numRead <= 0)
 				break;
 			printf("%.*s", (int)numRead, buf);
 		}
 		exit(EXIT_SUCCESS);
 
-	default: /* Parent: write contents of stdin to socket */
+	default:
 		for (;;)
 		{
 			numRead = read(STDIN_FILENO, buf, BUF_SIZE);
-			if (numRead <= 0) /* Exit loop on EOF or error */
+			if (numRead <= 0)
 				break;
 			if (write(sfd, buf, numRead) != numRead)
 				errExit("write");
 		}
-
-		/* Close writing channel, so server sees EOF */
 
 		if (shutdown(sfd, SHUT_WR) == -1)
 			errExit("shutdown");
