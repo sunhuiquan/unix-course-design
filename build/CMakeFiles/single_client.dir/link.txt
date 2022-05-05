@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/single_client.dir/src/single_client.c.o CMakeFiles/single_client.dir/src/inet_stream_sockets.c.o CMakeFiles/single_client.dir/src/util.c.o  -o single_client 

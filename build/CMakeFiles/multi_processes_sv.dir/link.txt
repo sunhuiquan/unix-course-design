@@ -1,1 +1,0 @@
-/usr/bin/cc -g   CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.o CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o CMakeFiles/multi_processes_sv.dir/src/util.c.o  -o multi_processes_sv 

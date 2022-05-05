@@ -1,4 +1,0 @@
-/home/february/work/exercise/unix-course-design/build/CMakeFiles/rebuild_cache.dir
-/home/february/work/exercise/unix-course-design/build/CMakeFiles/edit_cache.dir
-/home/february/work/exercise/unix-course-design/build/CMakeFiles/single_client.dir
-/home/february/work/exercise/unix-course-design/build/CMakeFiles/multi_processes_sv.dir
