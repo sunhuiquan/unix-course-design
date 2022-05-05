@@ -8,7 +8,8 @@
 #include <string.h>
 #include <errno.h>
 
-#include "inet_stream_sockets.h"
+#include "../include/inet_stream_sockets.h"
+#include "../include/util.h"
 
 #define SERVICE "echo" // 周知服务名，echo 服务对应端口 7
 #define BUF_SIZE 4096
@@ -32,19 +33,16 @@ static void handleRequest(int cfd)
 	ssize_t numRead;
 
 	while ((numRead = read(cfd, buf, BUF_SIZE)) > 0)
-	{
 		if (write(cfd, buf, numRead) != numRead)
 		{
-			// 信息通过 syslog 写入日志，到 /var/log/syslog 查看日志
-			syslog(LOG_ERR, "write() failed: %s", strerror(errno));
-			exit(EXIT_FAILURE);
+			syslog(LOG_ERR, "write (%s)", strerror(errno)); // 错误写入日志
+			_exit(EXIT_FAILURE);
 		}
-	}
 
 	if (numRead == -1)
 	{
-		syslog(LOG_ERR, "Error from read(): %s", strerror(errno));
-		exit(EXIT_FAILURE);
+		syslog(LOG_ERR, "read (%s)", strerror(errno));
+		_exit(EXIT_FAILURE);
 	}
 }
 
@@ -58,18 +56,12 @@ int main(int argc, char *argv[])
 	sa.sa_flags = SA_RESTART;
 	sa.sa_handler = reaper;
 	if (sigaction(SIGCHLD, &sa, NULL) == -1)
-	{
-		syslog(LOG_ERR, "Error from sigaction(): %s", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
+		logErrExit("sigaction");
 
 	// 生成监听套接字
 	lfd = inetStreamListen(SERVICE, 10, NULL);
 	if (lfd == -1)
-	{
-		syslog(LOG_ERR, "Could not create listening socket (%s)", strerror(errno));
-		exit(EXIT_FAILURE);
-	}
+		logErrExit("inetStreamConnect");
 
 	/* 多进程模型：一个子进程为一个客户的请求提供服务，父进程不断 accept 等待来自
 	 * 客户的 connect 请求，生成连接套接字后 fork 让子进程为该客户提供服务，父进程
@@ -80,10 +72,7 @@ int main(int argc, char *argv[])
 		// 建立 TCP 连接，生成连接套接字
 		cfd = accept(lfd, NULL, NULL); /* Wait for connection */
 		if (cfd == -1)
-		{
-			syslog(LOG_ERR, "Failure in accept(): %s", strerror(errno));
-			exit(EXIT_FAILURE);
-		}
+			logErrExit("accept");
 
 		switch (fork())
 		{

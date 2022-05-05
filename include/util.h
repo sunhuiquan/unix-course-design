@@ -3,6 +3,8 @@
 
 void errExit(const char *msg);
 
-void usageErrExit(const char* name,const char *msg);
+void usageErrExit(const char *name, const char *msg);
+
+void logErrExit(const char *msg);
 
 #endif
