@@ -1,14 +1,5 @@
 {
 	"files.associations": {
-		"signal.h": "c",
-		"test_client.h": "c",
-		"multiple_processes_server.h": "c",
-		"inet.h": "c",
-		"util.h": "c",
-		"stdio.h": "c",
-		"inet_sockets.h": "c",
-		"string.h": "c",
-		"stdlib.h": "c",
-		"netdb.h": "c"
+		"inet_stream_sockets.h": "c"
 	}
 }

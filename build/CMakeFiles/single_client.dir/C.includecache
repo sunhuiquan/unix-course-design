@@ -48,3 +48,15 @@ inet_stream_sockets.h
 util.h
 /home/february/work/exercise/unix-course-design/src/util.h
 
+/home/february/work/exercise/unix-course-design/src/util.c
+util.h
+/home/february/work/exercise/unix-course-design/src/util.h
+errno.h
+-
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+
