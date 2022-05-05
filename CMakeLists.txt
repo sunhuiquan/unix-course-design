@@ -9,4 +9,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 
 add_executable(multi_processes_sv src/multi_processes_sv.c src/inet_stream_sockets.c src/util.c)
 
-add_executable(test_client src/test_client.c src/inet_stream_sockets.c src/util.c)
+# add_executable(multi_threads_sv src/multi_threads_sv.c src/inet_stream_sockets.c src/util.c)
+
+# add_executable(multi_io_sv src/multi_io_sv.c src/inet_stream_sockets.c src/util.c)
+
+add_executable(single_client src/single_client.c src/inet_stream_sockets.c src/util.c)

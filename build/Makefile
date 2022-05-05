@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_client
+# Target rules for targets named single_client
 
 # Build rule for target.
-test_client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test_client
-.PHONY : test_client
+single_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 single_client
+.PHONY : single_client
 
 # fast build rule for target.
-test_client/fast:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/build
-.PHONY : test_client/fast
+single_client/fast:
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/build
+.PHONY : single_client/fast
 
 #=============================================================================
 # Target rules for targets named multi_processes_sv
@@ -142,7 +142,7 @@ src/inet_stream_sockets.o: src/inet_stream_sockets.c.o
 
 # target to build an object file
 src/inet_stream_sockets.c.o:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.o
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/inet_stream_sockets.c.o
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.o
 .PHONY : src/inet_stream_sockets.c.o
 
@@ -152,7 +152,7 @@ src/inet_stream_sockets.i: src/inet_stream_sockets.c.i
 
 # target to preprocess a source file
 src/inet_stream_sockets.c.i:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.i
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/inet_stream_sockets.c.i
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.i
 .PHONY : src/inet_stream_sockets.c.i
 
@@ -162,7 +162,7 @@ src/inet_stream_sockets.s: src/inet_stream_sockets.c.s
 
 # target to generate assembly for a file
 src/inet_stream_sockets.c.s:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/inet_stream_sockets.c.s
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/inet_stream_sockets.c.s
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/inet_stream_sockets.c.s
 .PHONY : src/inet_stream_sockets.c.s
 
@@ -193,32 +193,32 @@ src/multi_processes_sv.c.s:
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/multi_processes_sv.c.s
 .PHONY : src/multi_processes_sv.c.s
 
-src/test_client.o: src/test_client.c.o
+src/single_client.o: src/single_client.c.o
 
-.PHONY : src/test_client.o
+.PHONY : src/single_client.o
 
 # target to build an object file
-src/test_client.c.o:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/test_client.c.o
-.PHONY : src/test_client.c.o
+src/single_client.c.o:
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/single_client.c.o
+.PHONY : src/single_client.c.o
 
-src/test_client.i: src/test_client.c.i
+src/single_client.i: src/single_client.c.i
 
-.PHONY : src/test_client.i
+.PHONY : src/single_client.i
 
 # target to preprocess a source file
-src/test_client.c.i:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/test_client.c.i
-.PHONY : src/test_client.c.i
+src/single_client.c.i:
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/single_client.c.i
+.PHONY : src/single_client.c.i
 
-src/test_client.s: src/test_client.c.s
+src/single_client.s: src/single_client.c.s
 
-.PHONY : src/test_client.s
+.PHONY : src/single_client.s
 
 # target to generate assembly for a file
-src/test_client.c.s:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/test_client.c.s
-.PHONY : src/test_client.c.s
+src/single_client.c.s:
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/single_client.c.s
+.PHONY : src/single_client.c.s
 
 src/util.o: src/util.c.o
 
@@ -226,7 +226,7 @@ src/util.o: src/util.c.o
 
 # target to build an object file
 src/util.c.o:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.o
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/util.c.o
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.o
 .PHONY : src/util.c.o
 
@@ -236,7 +236,7 @@ src/util.i: src/util.c.i
 
 # target to preprocess a source file
 src/util.c.i:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.i
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/util.c.i
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.i
 .PHONY : src/util.c.i
 
@@ -246,7 +246,7 @@ src/util.s: src/util.c.s
 
 # target to generate assembly for a file
 src/util.c.s:
-	$(MAKE) -f CMakeFiles/test_client.dir/build.make CMakeFiles/test_client.dir/src/util.c.s
+	$(MAKE) -f CMakeFiles/single_client.dir/build.make CMakeFiles/single_client.dir/src/util.c.s
 	$(MAKE) -f CMakeFiles/multi_processes_sv.dir/build.make CMakeFiles/multi_processes_sv.dir/src/util.c.s
 .PHONY : src/util.c.s
 
@@ -258,7 +258,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test_client"
+	@echo "... single_client"
 	@echo "... multi_processes_sv"
 	@echo "... src/inet_stream_sockets.o"
 	@echo "... src/inet_stream_sockets.i"
@@ -266,9 +266,9 @@ help:
 	@echo "... src/multi_processes_sv.o"
 	@echo "... src/multi_processes_sv.i"
 	@echo "... src/multi_processes_sv.s"
-	@echo "... src/test_client.o"
-	@echo "... src/test_client.i"
-	@echo "... src/test_client.s"
+	@echo "... src/single_client.o"
+	@echo "... src/single_client.i"
+	@echo "... src/single_client.s"
 	@echo "... src/util.o"
 	@echo "... src/util.i"
 	@echo "... src/util.s"

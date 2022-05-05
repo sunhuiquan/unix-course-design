@@ -4,11 +4,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <sys/socket.h>
 
 #include "inet_stream_sockets.h"
 #include "util.h"
 
-#define BUF_SIZE 100
+#define BUF_SIZE 4096
 
 int main(int argc, char *argv[])
 {

@@ -1,15 +1,13 @@
+#include "inet_stream_sockets.h"
+
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-
-#include <string.h>
-#include <stdio.h>
-
-#include "inet_stream_sockets.h"
-
 #include <errno.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdio.h>
 
 /*	生成流式套接字，然后向服务端 host 和 service 对应的地址发起 connect 请求，
 	如果成功完成 TCP 连接则返回对应套接字 fd，否则返回 -1。
@@ -89,6 +87,7 @@ int inetStreamListen(const char *service, int backlog, socklen_t *addrlen)
 		if (sfd == -1)
 			continue;
 
+		// 开启 SO_REUSEADDR 选项，让 TIME_WAIT 不必等待 2MSL
 		if (setsockopt(sfd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval)) == -1)
 		{
 			close(sfd);
@@ -102,17 +101,14 @@ int inetStreamListen(const char *service, int backlog, socklen_t *addrlen)
 		close(sfd);
 	}
 
-	if (rp != NULL)
+	if (rp != NULL && listen(sfd, backlog) == -1)
 	{
-		if (listen(sfd, backlog) == -1)
-		{
-			freeaddrinfo(result);
-			return -1;
-		}
+		freeaddrinfo(result);
+		return -1;
 	}
 
 	if (rp != NULL && addrlen != NULL)
-		*addrlen = rp->ai_addrlen; /* Return address structure size */
+		*addrlen = rp->ai_addrlen;
 
 	freeaddrinfo(result);
 

@@ -2,7 +2,6 @@
 #define INET_STREAM_SOCKETS_H
 
 #include <sys/socket.h>
-#include <netdb.h>
 
 int inetStreamConnect(const char *host, const char *service);
 

@@ -10,6 +10,8 @@
 sys/socket.h
 -
 
+../include/util.h
+
 /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.c
 inet_stream_sockets.h
 /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.h
@@ -30,21 +32,19 @@ string.h
 stdio.h
 -
 
-/home/february/work/exercise/unix-course-design/src/multi_processes_sv.c
+/home/february/work/exercise/unix-course-design/src/single_client.c
 unistd.h
 -
 stdlib.h
 -
-signal.h
--
-sys/wait.h
--
-syslog.h
+stdio.h
 -
 string.h
 -
-errno.h
+sys/socket.h
 -
 inet_stream_sockets.h
 /home/february/work/exercise/unix-course-design/src/inet_stream_sockets.h
+util.h
+/home/february/work/exercise/unix-course-design/src/util.h
 
