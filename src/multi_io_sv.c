@@ -19,12 +19,11 @@ int main(int argc, char *argv[])
 	struct epoll_event evlist[MAX_EVENTS];
 	char buf[MAX_BUF];
 
-	// to do backlog?
-	lfd = inetStreamListen(SERVICE, 10, NULL); // 生成监听套接字
+	lfd = inetStreamListen(SERVICE, 512, NULL); // 生成监听套接字
 	if (lfd == -1)
 		logErrExit("inetStreamListen");
 
-	epfd = epoll_create(0); // 该参数已废弃无意义
+	epfd = epoll_create(1); // 该参数已废弃无意义，随便一个正数即可
 	if (epfd == -1)
 		logErrExit("epoll_create");
 
@@ -70,11 +69,18 @@ int main(int argc, char *argv[])
 					readn = read(evlist[i].data.fd, buf, MAX_BUF);
 					if (readn == -1)
 						logErrExit("read");
-					if (write(evlist[i].data.fd, buf, readn) != readn)
+
+					if (readn == 0)
+					{
+						if (close(evlist[i].data.fd) == -1)
+							logErrExit("close");
+					}
+					else if (write(evlist[i].data.fd, buf, readn) != readn)
 						logErrExit("write");
 				}
 				else if (evlist[i].events & (EPOLLHUP | EPOLLERR))
 				{
+					// 对端关闭，收到EOF
 					if (close(evlist[i].data.fd) == -1)
 						logErrExit("close");
 				}

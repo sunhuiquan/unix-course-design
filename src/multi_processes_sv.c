@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 	 * 客户的 connect 请求，生成连接套接字后 fork 让子进程为该客户提供服务，父进程
 	 * 循环继续 accept 等待下一个客户的请求。
 	 */
-	for (;;)
+	while(1)
 	{
 		// 建立 TCP 连接，生成连接套接字
 		cfd = accept(lfd, NULL, NULL); /* Wait for connection */
