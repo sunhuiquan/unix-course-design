@@ -20,3 +20,8 @@ add_executable(multi_io_sv src/multi_io_sv.c src/inet_stream_sockets.c
 
 add_executable(single_client src/single_client.c src/inet_stream_sockets.c
                              src/util.c)
+
+add_executable(test_client src/test_client.c src/inet_stream_sockets.c
+                           src/util.c)
+set_target_properties(test_client PROPERTIES COMPILE_FLAGS "-pthread"
+                                             LINK_FLAGS "-pthread")

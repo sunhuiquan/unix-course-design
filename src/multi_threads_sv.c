@@ -38,17 +38,17 @@ int main(int argc, char *argv[])
 {
 	pthread_t dummy_thr; // 无用，只是作为参数
 	pthread_attr_t attr;
-	int s, lfd, cfd;
+	int r, lfd, cfd;
 
 	// 初始化线程属性
-	s = pthread_attr_init(&attr);
-	if (s != 0)
-		logErrExit("inetStreamConnect");
+	r = pthread_attr_init(&attr);
+	if (r != 0)
+		threadLogErrExit("pthread_attr_init", r);
 
 	// 设置线程属性创建立即分离，使僵尸线程自动被回收
-	s = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
-	if (s != 0)
-		logErrExit("inetStreamConnect");
+	r = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
+	if (r != 0)
+		threadLogErrExit("pthread_attr_setdetachstate", r);
 
 	// 生成监听套接字
 	lfd = inetStreamListen(SERVICE, 10, NULL);
@@ -63,9 +63,9 @@ int main(int argc, char *argv[])
 			logErrExit("accept"); // 服务器上的错误，exit 进程终止，所有线程终止
 
 		// 创建线程
-		s = pthread_create(&dummy_thr, &attr, threadFunc, (void *)cfd);
-		if (s != 0)
-			logErrExit("pthread_create");
+		r = pthread_create(&dummy_thr, &attr, threadFunc, (void *)cfd);
+		if (r != 0)
+			threadLogErrExit("pthread_create", r);
 	}
 
 	// attr 虽然是动态分配的，但一直被使用，而且服务器是无限循环的，所以不需要释放

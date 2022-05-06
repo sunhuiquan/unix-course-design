@@ -9,7 +9,7 @@
 #include "util.h"
 
 #define MAX_BUF 4096
-#define MAX_EVENTS 10 // to do 最好是动态调整
+#define MAX_EVENTS 100 // 最好是动态调整
 #define SERVICE "echo"
 
 int main(int argc, char *argv[])
