@@ -10,8 +10,10 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 add_executable(multi_processes_sv src/multi_processes_sv.c
                                   src/inet_stream_sockets.c src/util.c)
 
-# add_executable(multi_threads_sv src/multi_threads_sv.c
-#                                 src/inet_stream_sockets.c src/util.c)
+add_executable(multi_threads_sv src/multi_threads_sv.c
+                                src/inet_stream_sockets.c src/util.c)
+set_target_properties(multi_threads_sv PROPERTIES COMPILE_FLAGS "-pthread"
+                                                  LINK_FLAGS "-pthread")
 
 add_executable(multi_io_sv src/multi_io_sv.c src/inet_stream_sockets.c
                            src/util.c)

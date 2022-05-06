@@ -22,7 +22,7 @@ threadFunc(void *arg)
 		if (write(cfd, buf, numRead) != numRead)
 		{
 			syslog(LOG_ERR, "write (%s)", strerror(errno)); // 错误写入日志
-			return NULL;									// 只结束线程本身
+			return NULL;									// 只结束线程本身，避免终止整个服务器进程
 		}
 
 	if (numRead == -1)
@@ -36,18 +36,19 @@ threadFunc(void *arg)
 
 int main(int argc, char *argv[])
 {
+	pthread_t dummy_thr; // 无用，只是作为参数
 	pthread_attr_t attr;
 	int s, lfd, cfd;
 
 	// 初始化线程属性
 	s = pthread_attr_init(&attr);
 	if (s != 0)
-		errExitEN(s, "pthread_attr_init");
+		logErrExit("inetStreamConnect");
 
-	// 设置线程属性创建立即分离
+	// 设置线程属性创建立即分离，使僵尸线程自动被回收
 	s = pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_DETACHED);
 	if (s != 0)
-		errExitEN(s, "pthread_attr_setdetachstate");
+		logErrExit("inetStreamConnect");
 
 	// 生成监听套接字
 	lfd = inetStreamListen(SERVICE, 10, NULL);
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
 			logErrExit("accept"); // 服务器上的错误，exit 进程终止，所有线程终止
 
 		// 创建线程
-		s = pthread_create(NULL, &attr, threadFunc, (void *)cfd);
+		s = pthread_create(&dummy_thr, &attr, threadFunc, (void *)cfd);
 		if (s != 0)
 			logErrExit("pthread_create");
 	}
