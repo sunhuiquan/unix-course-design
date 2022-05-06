@@ -6,7 +6,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <pthread.h>
-#include <time.h>
+#include <sys/time.h>
 #include <errno.h>
 
 #include "inet_stream_sockets.h"
@@ -42,8 +42,6 @@ static void *request(void *arg)
 			return NULL;
 		}
 
-		sleep(1); // 延长服务时间
-
 		numRead = read(sfd, buf, BUF_SIZE);
 		if (numRead != MSG_LEN || strncmp(MSG, buf, MSG_LEN) != 0) // 出错/部分读
 		{
@@ -57,13 +55,13 @@ static void *request(void *arg)
 
 int main(int argc, char *argv[])
 {
-	int numRequest;
+	int numRequest, r;
 	pthread_t *threads;
-	int r;
-	time_t start, end;
+	double sec;
+	struct timeval start, end;
 
-	if ((start = time(NULL)) == -1)
-		errExit("time");
+	if (gettimeofday(&start, NULL) == -1)
+		errExit("gettimeofday");
 
 	// 检查命令行参数
 	if ((argc != 2 && argc != 3) || strcmp(argv[1], "--help") == 0)
@@ -71,7 +69,7 @@ int main(int argc, char *argv[])
 	if (argc == 3)
 		numRequest = atoi(argv[2]);
 	else
-		numRequest = 1000;
+		numRequest = 300;
 
 	threads = (pthread_t *)malloc(numRequest * sizeof(pthread_t));
 	memset(threads, 0, numRequest * sizeof(pthread_t));
@@ -90,11 +88,13 @@ int main(int argc, char *argv[])
 			threadErrExit("pthread_join", r);
 	}
 
-	if ((end = time(NULL)) == -1)
-		errExit("time");
+	if (gettimeofday(&end, NULL) == -1)
+		errExit("gettimeofday");
+	;
 	free(threads);
 
-	printf("%d threads requests cost: %d seconds.\n", numRequest, (int)(end - start));
+	sec = end.tv_sec - start.tv_sec + (double)(end.tv_usec - start.tv_usec) / 1000000;
+	printf("%d threads requests cost: %.4lf seconds.\n", numRequest, sec);
 
 	return 0;
 }
