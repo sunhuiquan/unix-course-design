@@ -21,3 +21,7 @@ UNIX课程设计：设计玩具级并发服务器，客户机和服务器实现�
 	- 单次请求服务器服务
 1. [并发请求测试 test_client.c](./src/test_client.c)
 	- 产生大量的并发请求，记录时间，评测性能
+1. 我们并发量一大就会遇到 possible SYN flooding on port 7 的报错，这是防 DDOS 攻击的，你需要 sudo sysctl -w net.ipv4.tcp_syncookies=0 暂时关闭这个防护，之后再打开。
+
+1. 性能测试：
+  ![IMG](./test.png)

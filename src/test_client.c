@@ -34,7 +34,7 @@ static void *request(void *arg)
 	// 下面代码为了简化，没有考虑部分读/写等情况，是不安全的代码
 	// 但实际上已经足够用了，因为服务器的功能是 echo，而我们客户端
 	// 又是 write 一次 read 一次，足够可靠了。
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 1000; ++i)
 	{
 		if (write(sfd, MSG, MSG_LEN) != MSG_LEN)
 		{
